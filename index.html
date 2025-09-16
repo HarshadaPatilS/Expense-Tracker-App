@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>💰 Smart Expense Tracker</h1>
+        <p>Take control of your finances with intelligent spending insights</p>
+      </div>
+
+      <div class="main-content">
+        <!-- Add Expense Section -->
+        <div class="section">
+          <h2>📝 Add New Expense</h2>
+          <form id="expenseForm">
+            <div class="form-group">
+              <label for="amount">Amount ($)</label>
+              <input type="number" id="amount" step="0.01" required />
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input
+                type="text"
+                id="description"
+                placeholder="e.g., Coffee at Starbucks"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="category">Category (Auto-suggested)</label>
+              <select id="category">
+                <option value="Food & Dining">🍕 Food & Dining</option>
+                <option value="Transportation">🚗 Transportation</option>
+                <option value="Shopping">🛒 Shopping</option>
+                <option value="Bills & Utilities">⚡ Bills & Utilities</option>
+                <option value="Healthcare">🏥 Healthcare</option>
+                <option value="Education">📚 Education</option>
+                <option value="Entertainment">🎬 Entertainment</option>
+                <option value="Personal Care">💄 Personal Care</option>
+                <option value="Other">📋 Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="date">Date</label>
+              <input type="date" id="date" required />
+            </div>
+            <button type="submit" class="btn">Add Expense</button>
+          </form>
+        </div>
+
+        <!-- Budget Section -->
+        <div class="section">
+          <h2>🎯 Monthly Budget</h2>
+          <div class="budget-input">
+            <input
+              type="number"
+              id="budgetAmount"
+              placeholder="Set monthly budget"
+              step="0.01"
+            />
+            <button onclick="setBudget()" class="btn">Set Budget</button>
+          </div>
+          <div id="budgetDisplay"></div>
+        </div>
+
+        <!-- Statistics Section -->
+        <div class="section full-width">
+          <h2>📊 Spending Overview</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" id="totalSpent">$0.00</div>
+              <div class="stat-label">Total Spent This Month</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="avgDaily">$0.00</div>
+              <div class="stat-label">Average Daily Spending</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="totalExpenses">0</div>
+              <div class="stat-label">Total Expenses</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-value" id="topCategory">-</div>
+              <div class="stat-label">Top Spending Category</div>
+            </div>
+          </div>
+
+          <div class="category-breakdown">
+            <h3>Category Breakdown</h3>
+            <div id="categoryList"></div>
+          </div>
+        </div>
+
+        <!-- Recent Expenses Section -->
+        <div class="section full-width">
+          <h2>📋 Recent Expenses</h2>
+          <div id="expenseList"></div>
+        </div>
+
+        <!-- Smart Insights Section -->
+        <div class="insights full-width">
+          <h2>🧠 Smart Insights</h2>
+          <div id="insightsList"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
